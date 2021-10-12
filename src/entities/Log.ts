@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { IsBoolean, IsDate, IsNotEmpty, IsNumber } from 'class-validator';
 
 @Entity('Log', { schema: 'soundpicker_test' })
 export class Log {
@@ -8,9 +9,9 @@ export class Log {
   @Column('tinyint', { name: 'type', width: 1 })
   type: boolean;
 
-  @Column('datetime', { name: 'createdAt' })
+  @CreateDateColumn()
   createdAt: Date;
 
-  @Column('datetime', { name: 'updatedAt' })
+  @UpdateDateColumn()
   updatedAt: Date;
 }
