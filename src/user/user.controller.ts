@@ -1,19 +1,19 @@
 import { Body, Controller, Headers, Get, Post, Put } from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { UserDto } from '../user/dto/user.dto';
-import { ResponseTemplateDto } from '../common/dto/responseTemplate.dto';
+import { ResponseTemplate } from '../common/dto/response-template';
 
 @ApiTags('USER')
 @Controller('user')
 @ApiResponse({
   status: 200,
   description: '성공',
-  type: ResponseTemplateDto
+  type: ResponseTemplate
 })
 @ApiResponse({
   status: 500,
   description: '서버 에러',
-  type: ResponseTemplateDto
+  type: ResponseTemplate
 })
 export class UserController {
   @ApiBody({

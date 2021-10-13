@@ -9,18 +9,18 @@ import {
   Body,
 } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { ResponseTemplateDto } from '../common/dto/responseTemplate.dto';
+import { ResponseTemplate } from '../common/dto/response-template';
 
 @ApiTags('TEST')
 @ApiResponse({
   status: 200,
   description: '성공',
-  type: ResponseTemplateDto,
+  type: ResponseTemplate,
 })
 @ApiResponse({
   status: 500,
   description: '서버 에러',
-  type: ResponseTemplateDto,
+  type: ResponseTemplate,
 })
 @Controller('test')
 export class TestController {

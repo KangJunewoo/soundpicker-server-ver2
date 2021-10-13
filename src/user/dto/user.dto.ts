@@ -1,4 +1,4 @@
-import { LoginInfoDto } from './loginInfo.dto';
+import { LoginInfoDto } from './login-info.dto';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class UserDto extends LoginInfoDto {
