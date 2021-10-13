@@ -3,7 +3,6 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { Category } from './src/entities/Category';
 import { User } from './src/entities/User';
 import { Question } from './src/entities/Question';
-import { Log } from './src/entities/Log';
 import { Test } from './src/entities/Test';
 
 dotenv.config();
@@ -14,7 +13,7 @@ const config: TypeOrmModuleOptions = {
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
-  entities: [Category, Log, Question, Test, User],
+  entities: [Category, Question, Test, User],
   migrations: [__dirname + '/src/migrations/*.ts'],
   cli: { migrationsDir: 'src/migrations' },
   autoLoadEntities: true,

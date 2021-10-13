@@ -1,17 +1,19 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
-import { IsBoolean, IsDate, IsNotEmpty, IsNumber } from 'class-validator';
+import { Document } from 'mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
-@Entity('Log', { schema: 'soundpicker_test' })
+@Schema()
 export class Log {
-  @PrimaryGeneratedColumn({ type: 'int', name: 'id' })
-  id: number;
+  @Prop({ type: Number, required: true })
+  type: number;
 
-  @Column('tinyint', { name: 'type', width: 1 })
-  type: boolean;
+  @Prop({ type: Date, required: true })
+  loggedAt: Date;
 
-  @CreateDateColumn()
-  createdAt: Date;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
+  constructor(type: number) {
+    this.type = type;
+  }
 }
+
+export type LogDocument = Log & Document;
+
+export const LogSchema = SchemaFactory.createForClass(Log);

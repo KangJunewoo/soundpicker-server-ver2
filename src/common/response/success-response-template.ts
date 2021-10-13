@@ -2,7 +2,11 @@ import { ApiProperty } from '@nestjs/swagger';
 import { ResponseTemplate } from './response-template';
 
 export class SuccessResponseTemplate extends ResponseTemplate {
-  constructor(status: number, message: string, data: Record<string, unknown>) {
+  constructor(
+    status: number,
+    message: string,
+    data?: Record<string, unknown> | any[],
+  ) {
     super(status, message);
     this.success = true;
     this.data = data;
@@ -12,11 +16,9 @@ export class SuccessResponseTemplate extends ResponseTemplate {
     required: true,
     example: {
       k1: 'v1',
-      k2: 'v2'
+      k2: 'v2',
     },
-    description: '응답 내용'
+    description: '응답 내용',
   })
-  public data: Record<string, unknown>;
-
-
+  public data?: Record<string, unknown> | any[];
 }
