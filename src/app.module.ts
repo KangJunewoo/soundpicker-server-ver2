@@ -6,6 +6,7 @@ import { UserModule } from './user/user.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as ormconfig from '../ormconfig';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import * as ormconfig from '../ormconfig';
     TestModule,
     UserModule,
     TypeOrmModule.forRoot(ormconfig),
+    MongooseModule.forRoot(process.env.MONGO_HOST),
   ],
   controllers: [AppController],
   providers: [AppService],
