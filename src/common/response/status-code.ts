@@ -1,4 +1,4 @@
-module.exports = {
+const sc = {
   OK: 200,
   CREATED: 201,
   NO_CONTENT: 204,
@@ -10,3 +10,5 @@ module.exports = {
   SERVICE_UNAVAILABLE: 503,
   DB_ERROR: 600,
 };
+
+export = sc;

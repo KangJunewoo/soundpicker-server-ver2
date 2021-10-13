@@ -1,17 +1,3 @@
-//[
-//  {
-//    "name": "default",
-//    "type": "mysql",
-//    "host": "soundpicker-db.ckxjgesoea8z.ap-northeast-2.rds.amazonaws.com",
-//    "port": 3306,
-//    "username": "admin",
-//    "password": "tkdnsemvlzj12*",
-//    "database": "",
-//    "synchronize": false,
-//    "entities": ["entities/*.js"]
-//  }
-//]
-
 import * as dotenv from 'dotenv';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { Category } from './src/entities/Category';

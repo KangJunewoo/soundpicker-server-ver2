@@ -1,3 +1,6 @@
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 const jwtOptions = {
   secretKey: process.env.JWT_SECRET_KEY,
   options: {

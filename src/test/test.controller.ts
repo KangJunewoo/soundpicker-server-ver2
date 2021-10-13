@@ -9,21 +9,32 @@ import {
   Body,
 } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { ResponseTemplate } from '../common/dto/response-template';
+import { FailureResponseTemplate } from '../common/response/failure-response-template';
+import { SuccessResponseTemplate } from '../common/response/success-response-template';
+import { TestService } from './test.service';
 
 @ApiTags('TEST')
+@Controller('test')
 @ApiResponse({
   status: 200,
   description: '성공',
-  type: ResponseTemplate,
+  type: SuccessResponseTemplate,
+})
+@ApiResponse({
+  status: 400,
+  description: '클라이언트 에러',
+  type: FailureResponseTemplate,
 })
 @ApiResponse({
   status: 500,
   description: '서버 에러',
-  type: ResponseTemplate,
+  type: FailureResponseTemplate,
 })
-@Controller('test')
 export class TestController {
+
+  constructor(private testService:TestService) {
+  }
+
   @ApiOperation({ summary: '전체 테스트 조회' })
   @Get()
   getWholeTests() {}
